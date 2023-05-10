@@ -1,0 +1,1 @@
+// create another Class to guarantee the latitude and longitude params names (SharePlace.js:locateUserHandler)
