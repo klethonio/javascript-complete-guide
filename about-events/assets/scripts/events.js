@@ -101,7 +101,7 @@ list.addEventListener('click', function (event) {
   // event.currentTarget.querySelector('li').classList.toggle('highlighted');
   event.target.closest('li').classList.toggle('highlighted');
 
-  form.querySelector('button').submit();
+  form.querySelector('button').click();
   // this below doesn't trigger the event listener created before to the form
   // form.submit();
 

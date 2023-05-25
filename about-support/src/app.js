@@ -25,5 +25,4 @@ button.addEventListener('click', () => {
   } else {
     alert('Feature not available, please copy manually!');
   }
-
 });

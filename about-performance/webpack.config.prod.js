@@ -5,8 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    'share-place': './src/SharePlace.js',
-    'my-place': './src/MyPlace.js',
+    shop: './src/optimized/shop.js',
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -39,21 +38,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new CleanPlugin.CleanWebpackPlugin(),
-    // those lines load the file names automatically in the index.html file
-    // they weren't added in the webpack.config.js file
-    new HtmlWebpackPlugin({
-      template: './src/share-place.html',
-      filename: '../../index.html',
-      chunks: ['share-place'],
-      inject: 'head',
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/my-place.html',
-      filename: '../../my-place/index.html',
-      chunks: ['my-place'],
-      inject: 'head',
-    }),
-  ],
+  plugins: [new CleanPlugin.CleanWebpackPlugin()],
 };
