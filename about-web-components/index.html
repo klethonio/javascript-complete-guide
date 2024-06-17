@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Components</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                font-family: sans-serif;
+            }
+
+            :root {
+                --color-primary: #a4e6fc;
+            }
+
+            /* div {
+                border: 2px solid orange;
+            }
+
+            uc-tooltip {
+                padding: 0.2rem;
+                border: 1px solid blue;
+            }
+
+            .highlight {
+                background-color: #f7d28e;
+            } */
+        </style>
+        <script src="tooltip.js"></script>
+        <script src="confirm-link.js"></script>
+        <script src="info-toggle.js"></script>
+        <script src="modal.js"></script>
+    </head>
+    <body>
+        <p>
+            <uc-tooltip text="Web Components is a set of standards.">
+                <span class="highlight">Web components</span>
+            </uc-tooltip>
+            are awesome!
+        </p>
+        <uc-tooltip class="important"></uc-tooltip>
+        <!-- <div>This does not get the web component styles!</div> -->
+        <a is="uc-confirm-link" href="https://www.google.com" target="_blank">Google</a>
+        <hr />
+        <!-- <uc-info-toggle>This works!</uc-info-toggle> -->
+        <hr />
+        <h2>Modal</h2>
+        <uc-modal>
+            <h1 slot="title">Please confirm payment!</h1>
+            <p>With your confirmation you agree to pay the full amount!</p>
+        </uc-modal>
+        <p>Please confirm your choice.</p>
+        <button>Show Details & Confirm</button>
+        <script>
+            const modalButton = document.querySelector('button');
+            const modal = document.querySelector('uc-modal');
+
+            modalButton.addEventListener('click', () => {
+                // modal.setAttribute('visible', '');
+                if (!modal.isOpen) {
+                    modal.open();
+                }
+            });
+
+            modal.addEventListener('confirm', () => {
+                console.log('confirmed...');
+            });
+
+            modal.addEventListener('cancel', () => {
+                console.log('cancelled...');
+            });
+        </script>
+    </body>
+</html>
